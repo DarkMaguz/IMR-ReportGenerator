@@ -1,25 +1,12 @@
 version: "3.9"
 
 services:
-  redis:
-    image: redis:6
-    container_name: imr-redis
-    command: /etc/redis.conf
-    volumes:
-      - ./redis.conf:/etc/redis.conf
-    ports:
-      - 6379:6379
-
   flask:
-    image: darkmagus/flask
+    build: .
     ports:
       - 5001:5001
     volumes:
       - ./app/:/usr/app/
-    depends_on:
-      - redis
-    links:
-      - "redis"
 
 networks:
   default:
