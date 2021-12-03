@@ -41,13 +41,13 @@ def worker(dataPoint):
 
 def setup():
 	if not os.path.exists(cfg.dataSouceDir):
-		print('Could not find "data" directory!')
+		print('Could not find %s directory!' % (cfg.dataSouceDir))
 		sys.exit(1)
 	if not os.path.exists(cfg.downloadDir):
 		os.makedirs(cfg.downloadDir)
 
 
-def main():
+def imr():
 	setup()
 	excelFiles = utils.getExcelFiles()
 	dataPoints = []
@@ -70,6 +70,6 @@ def main():
 	excel.writeReport(reports)
 
 
-if __name__ == '__main__':
-	with utils.MyTimer():
-		main()
+# if __name__ == '__main__':
+# 	with utils.MyTimer():
+# 		imr()
