@@ -66,3 +66,17 @@ def cleanup(fileName):
 			os.remove(filePath)
 		except Exception as e:
 			print('cleanup() error removing file:', e)
+
+def cleanDir(dir):
+	for file in os.listdir(dir):
+		try:
+			filePath = os.path.join(dir, file)
+		except Exception as e:
+			print('cleanDir() error removing file:', e)
+		if os.path.isdir(filePath):
+			cleanDir(filePath)
+		else:
+			try:
+				os.remove(filePath)
+			except Exception as e:
+				print('cleanDir() error removing file:', e)
