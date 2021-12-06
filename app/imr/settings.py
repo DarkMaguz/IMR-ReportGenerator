@@ -22,8 +22,8 @@ for dir in [outputDir, downloadDir, dataSouceDir]:
     os.makedirs(dir, exist_ok=True)
 
 # maxURLs: None or number grater than or eaqual to 2.
-maxURLs = 5010
+maxURLs = None
 # minURLs: 2 or number less than or eaqual to maxURLs.
-minURLs = 5000
+minURLs = 2
 
-maxWorkers = 5
+maxWorkers = 500
